@@ -1,0 +1,133 @@
+:root {
+    --primary: #780b0b;
+    --secondary: #18BC9C;
+    --accent: #f15094;
+    --light: #6faae4;
+    --dark: #212529;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+.navbar {
+    background-color: var(--primary) !important;
+    box-shadow: var(--shadow);
+}
+
+.hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-accent:hover {
+    background-color: #df4a74;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.card {
+    transition: var(--transition);
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.rounded-circle {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.border-rainbow {
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.border-rainbow::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    bottom: -3px;
+    left: -3px;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #8b0f7f, #731244, #88d7ce, #9794f1,#3fd6ad, #bc1d6d);
+    z-index: -1;
+    animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+.heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-image: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .rounded-circle {
+        width: 120px;
+        height: 120px;
+    }
+    .carousel-inner .row > div {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-inner .row > div {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
